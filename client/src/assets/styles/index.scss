@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap');
+
+@import 'mixins.scss';
+@import 'variables.scss';
+@import 'app.scss';
+
+*{
+    margin: 0;
+    font-family: $main-font, sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: $background-white;
+    font-family: $main-font;
+}

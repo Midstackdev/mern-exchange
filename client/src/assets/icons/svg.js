@@ -1,0 +1,10 @@
+export { ReactComponent as CaratUp } from './caret-fill-up.svg';
+export { ReactComponent as CaratDown } from './caret-fill-down.svg';
+export { ReactComponent as Btc } from './btc.svg';
+export { ReactComponent as Ltc } from './ltc.svg';
+export { ReactComponent as Xrp } from './xrp.svg';
+export { ReactComponent as Eth } from './eth.svg';
+export { ReactComponent as Usd } from './us.svg';
+export { ReactComponent as Gbp } from './gb.svg';
+export { ReactComponent as Eur } from './eu.svg';
+export { ReactComponent as Cad } from './ca.svg';
