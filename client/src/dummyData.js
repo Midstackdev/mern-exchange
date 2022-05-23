@@ -45,3 +45,18 @@ export const fiats = [
         img: <Cad/>
     },
 ]
+
+export const filters = [
+    {
+        ticker: '1',
+        name: 'All',
+    },
+    {
+        ticker: '2',
+        name: 'Live Price',
+    },
+    {
+        ticker: '3',
+        name: 'Exchanged',
+    },
+]

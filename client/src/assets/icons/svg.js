@@ -8,3 +8,6 @@ export { ReactComponent as Usd } from './us.svg';
 export { ReactComponent as Gbp } from './gb.svg';
 export { ReactComponent as Eur } from './eu.svg';
 export { ReactComponent as Cad } from './ca.svg';
+export { ReactComponent as Calender } from './calender.svg';
+export { ReactComponent as ArrowRight } from './arrow-right.svg';
+export { ReactComponent as ArrowLeft } from './arrow-left.svg';

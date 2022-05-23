@@ -1,4 +1,16 @@
 .app {
     
-    @import './_components/index.scss';    
+    @import './_components/index.scss';   
+    
+    .down {
+        padding: 52px 222px;
+        @include setFlex(flex, column, start, null);
+
+        h1 {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 152.2%;
+            color: $dark;
+        }
+    }
 }
