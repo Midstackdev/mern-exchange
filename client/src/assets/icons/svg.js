@@ -11,3 +11,5 @@ export { ReactComponent as Cad } from './ca.svg';
 export { ReactComponent as Calender } from './calender.svg';
 export { ReactComponent as ArrowRight } from './arrow-right.svg';
 export { ReactComponent as ArrowLeft } from './arrow-left.svg';
+export { ReactComponent as SortUp } from './sort-up.svg';
+export { ReactComponent as SortDown } from './sort-down.svg';

@@ -1,5 +1,6 @@
 import Exchange from "./components/Exchange";
 import Filter from "./components/Filter";
+import Table from "./components/Table";
 
 
 
@@ -12,6 +13,7 @@ function App() {
       <div className="down">
         <h1>History</h1>
         <Filter/>
+        <Table/>
       </div>
     </div>
   );

@@ -60,3 +60,42 @@ export const filters = [
         name: 'Exchanged',
     },
 ]
+export const history = [
+    {
+        id: '1',
+        date: '22/01/2022  20:55',
+        currencyFrom: 'Bitcoin',
+        amountFrom: '1',
+        currencyTo: 'USD',
+        amountTo: '48.000,00',
+        type: 'Live Price'
+    },
+    {
+        id: '2',
+        date: '22/01/2022  15:45',
+        currencyFrom: 'Bitcoin',
+        amountFrom: '1',
+        currencyTo: 'EUR',
+        amountTo: '48.000,00',
+        type: 'Exchanged'
+    },
+    {
+        id: '3',
+        date: '22/01/2022  12:35',
+        currencyFrom: 'Bitcoin',
+        amountFrom: '1',
+        currencyTo: 'GBP',
+        amountTo: '48.000,00',
+        type: 'Exchanged'
+    },
+    {
+        id: '4',
+        date: '22/01/2022  09:25',
+        currencyFrom: 'Ripple',
+        amountFrom: '1',
+        currencyTo: 'EUR',
+        amountTo: '48.000,00',
+        type: 'Live Price'
+    },
+    
+]
