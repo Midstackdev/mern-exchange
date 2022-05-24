@@ -1,5 +1,6 @@
 import Exchange from "./components/Exchange";
 import Filter from "./components/Filter";
+import Pagination from "./components/Pagination";
 import Table from "./components/Table";
 
 
@@ -14,6 +15,10 @@ function App() {
         <h1>History</h1>
         <Filter/>
         <Table/>
+        <Pagination/>
+      </div>
+      <div className="feedback">
+        Exchange submitted.
       </div>
     </div>
   );
