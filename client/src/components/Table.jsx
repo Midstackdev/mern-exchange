@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { SortDown, SortUp } from '../assets/icons/svg';
 import { history } from '../dummyData'
+import Modal from './Modal';
 
 const Table = () => {
 
     const [sorted, setSorted] = useState(false)
+    const [data, setData] = useState(null)
 
     const SortIcon = () => (
         <>
@@ -16,6 +18,7 @@ const Table = () => {
         setSorted(!sorted)
     }
   return (
+    <>
     <div className="table">
         <table>
             <thead>
@@ -44,6 +47,25 @@ const Table = () => {
             </tbody>
         </table>
     </div>
+    <div className="transactions">
+        {
+            history.map(item => (
+                <div className="item" key={item.id} onClick={() => setData(item)}>
+                    <div className="currency">
+                        <div className="">
+                            {item.currencyFrom} &#x2192; {item.currencyTo}
+                        </div>
+                        <div className="status"></div>
+                    </div>
+                    <div className="amount">
+                        Amount BTC 2.56565656
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+    <Modal data={data} setData={setData}/>
+    </>
   )
 }
 

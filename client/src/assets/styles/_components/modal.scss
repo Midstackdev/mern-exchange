@@ -1,0 +1,111 @@
+.modal {
+    display: none;
+
+    @media screen and (max-width:480px) {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: fit-content;
+        z-index: 9999;
+        // margin: 0 auto;
+        position: fixed;
+        top: 20%;
+        left: 0;
+        // background-color: rgba(0,0,0,0.5);
+        background: $white;
+        border-radius: 5px;
+
+        &.show {
+            display: flex;
+        }
+
+        .header {
+            // padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            padding: 32px 24px ;
+
+            span {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 150%;
+                color: $dark;
+            }
+
+            svg {
+                height: 24px;
+                width: 24px;
+                cursor: pointer;
+            }
+
+            &::after {
+                width: 100%; 
+                height: 1px; 
+                background: #F2F2F2; 
+                content:"";
+                position: absolute;
+                bottom: 0;
+                // padding: 0 24px;
+            }
+        }
+        
+        .body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .data {
+                display: flex;
+
+                .key {
+                    flex: 1;
+                }
+                
+                .value {
+                    flex: 2;
+                    position: relative;
+                    span {
+                        color: $grey;
+                    }
+
+                    span.status {
+                        padding: 5px;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: $primary;
+                        position: absolute;
+                        top: 5px;
+                        // right: 0;
+                        left: 0;
+                    }
+
+                    span.text {
+                        margin: 0 20px;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            padding: 24px;
+
+            button {
+                width: 100%;
+                padding: 13px 10px;
+                background: $primary;
+                color: $white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+        
+
+    }
+}

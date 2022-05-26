@@ -1,6 +1,7 @@
 .select {
     display: flex;
     flex-direction: column;
+    // width: 100%;
 
     span {
         font-style: normal;
@@ -119,6 +120,15 @@
                     color: #565656;
                 }
             }
+
+        }
+    }
+
+    @media screen and (max-width:480px) {
+        width: 100%;
+        
+        .wrapper {
+            width: 100%;
 
         }
     }

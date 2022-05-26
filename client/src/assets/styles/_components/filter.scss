@@ -49,4 +49,27 @@
         }
 
     }
+
+    @media screen and (max-width:480px) {
+        
+        form {
+            gap: 5px;
+            .formInput {
+
+                input {
+                    width: 90%;
+                    padding: 13px 3px;
+                }
+
+                button {
+                    padding: 13px 3px;
+                    width: 80px;
+                }
+            }
+
+            .select {
+                display: none;
+            }
+        }
+    }
 }

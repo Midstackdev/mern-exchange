@@ -10,13 +10,13 @@ const Exchange = () => {
           <Select title="Currency from" data={crytos} />
           <div className="formInput">
             <label htmlFor="">Amount</label>
-            <input type="text" placeholder='1' />
+            <input type="text" placeholder='Enter the amount' />
           </div>
           <span className="equals">=</span>
           <Select title="Currency to" data={fiats} />
           <div className="formInput">
             <label htmlFor="">Amount</label>
-            <input type="text" placeholder='1' />
+            <input type="text" placeholder='Enter the amount' />
           </div>
           <button className="save">Save</button>
         </div>

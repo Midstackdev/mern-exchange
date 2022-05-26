@@ -14,12 +14,12 @@ const Filter = () => {
         <form onSubmit={handleSubmit}>
             <div className="formInput">
                 <label htmlFor="">From date</label>
-                <input type="date" placeholder='22/01/202' />
+                <input type="date" placeholder='Select' />
                 {/* <Calender className="icon"/> */}
             </div>
             <div className="formInput">
                 <label htmlFor="">To date</label>
-                <input type="date" placeholder='22/01/202' />
+                <input type="date" placeholder='Today' />
                 {/* <Calender className="icon"/> */}
             </div>
             <Select title="Type" data={filters} />
