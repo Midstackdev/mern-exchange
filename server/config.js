@@ -9,6 +9,7 @@ const {
     BCRYPT_PEPPER,
     X_RAPID_API_HOST,
     X_RAPID_API_KEY,
+    X_COIN_API_KEY,
 } = process.env;
 
 export default {
@@ -17,6 +18,8 @@ export default {
     pepper: BCRYPT_PEPPER,
     rapidApiHost: X_RAPID_API_HOST,
     rapidApiKey: X_RAPID_API_KEY,
+    coinApiKey: X_COIN_API_KEY,
 }
 
 export const port = PORT
+export const coinApiKey = X_COIN_API_KEY

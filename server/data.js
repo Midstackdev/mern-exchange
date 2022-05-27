@@ -259,3 +259,6 @@ export const coinApi = {
 // console.log('no-keys---', Object.assign({}, tickers))
 
 // console.log('with keys----', tickers.reduce((a, v) => ({...a, [v]:v}), {}))
+
+// const toDb = ratesSchemaData(data, rapidApiRatesData(tickers, data))
+// console.log(toDb)

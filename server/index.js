@@ -1,9 +1,12 @@
 import axios from "axios";
 import express from "express";
 import cors from "cors";
-import config, { port } from "./config.js";
+import config, { coinApiKey, port } from "./config.js";
 import { coinApi, data, tickers } from "./data.js";
 import { coinApiRatesData, connectToDB, rapidApiOptions, rapidApiRatesData, ratesSchemaData } from "./helpers.js";
+import { create } from "./service/rates.service.js";
+import { registerRoutes } from "./routes/index.js";
+import errorMiddleware from "./middleware/error.middleware.js";
 
 const MINIMUM_DELAY = 3000;
 
@@ -24,19 +27,21 @@ app.use(cors());
 
 // axios.get('https://rest.coinapi.io/v1/exchangerate/BTC?invert=false', {
 //     headers: {
-//         'X-CoinAPI-Key': 'B0908FDF-F270-468F-A9B4-A4851866B6AC'
+//         'X-CoinAPI-Key': coinApiKey
 //     }
 // })
 // .then(function (response) {
-//     console.log(response.data);
+//     // console.log(response.data);
+//     const data = response.data
+//     const toDb = ratesSchemaData(data, coinApiRatesData(tickers, data))
+//     create(toDb)
+//     // console.log('data to db---',toDb)
 // }).catch(function (error) {
 //     console.error(error);
 // });
 
 
-// const toDb = ratesSchemaData(coinApi, coinApiRatesData(tickers, coinApi))
-const toDb = ratesSchemaData(coinApi, rapidApiRatesData(tickers, data))
-console.log(toDb)
+
 
 app.get('/', (req, res) => {
     res.json({
@@ -44,7 +49,17 @@ app.get('/', (req, res) => {
     });
 });
 
+registerRoutes(app)
+
 connectToDB();
+
+app.use(errorMiddleware)
+
+app.use((_req, res) => {
+    res.status(404).json({
+      message: 'Not found!, read the API documentation to find your way',
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is listening on port:${port}`);
