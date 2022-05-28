@@ -10,6 +10,7 @@ const {
     X_RAPID_API_HOST,
     X_RAPID_API_KEY,
     X_COIN_API_KEY,
+    PAGINATE_DEFAULT_LIMIT,
 } = process.env;
 
 export default {
@@ -19,7 +20,9 @@ export default {
     rapidApiHost: X_RAPID_API_HOST,
     rapidApiKey: X_RAPID_API_KEY,
     coinApiKey: X_COIN_API_KEY,
+    paginateLimit: PAGINATE_DEFAULT_LIMIT,
 }
 
 export const port = PORT
 export const coinApiKey = X_COIN_API_KEY
+export const paginateLimit = parseInt(PAGINATE_DEFAULT_LIMIT)

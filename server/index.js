@@ -1,12 +1,13 @@
 import axios from "axios";
 import express from "express";
 import cors from "cors";
-import config, { coinApiKey, port } from "./config.js";
+import config, { coinApiKey, port } from "./config/index.js";
 import { coinApi, data, tickers } from "./data.js";
-import { coinApiRatesData, connectToDB, rapidApiOptions, rapidApiRatesData, ratesSchemaData } from "./helpers.js";
+import { coinApiRatesData, rapidApiOptions, rapidApiRatesData, ratesSchemaData } from "./helpers.js";
 import { create } from "./service/rates.service.js";
 import { registerRoutes } from "./routes/index.js";
 import errorMiddleware from "./middleware/error.middleware.js";
+import connectToDB from "./config/database.js";
 
 const MINIMUM_DELAY = 3000;
 

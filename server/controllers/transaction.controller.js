@@ -11,9 +11,9 @@ export const store = async(req, res, next) => {
 }
 
 export const index = async(req, res, next) => {
-    const { id } = req.query
+    const { page } = req.query
     try {
-        const data = await getAll()
+        const data = await getAll(page)
         res.status(200).json(data)
     } catch (error) {
         next(error)
