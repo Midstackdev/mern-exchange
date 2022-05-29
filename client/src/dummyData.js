@@ -48,15 +48,15 @@ export const fiats = [
 
 export const filters = [
     {
-        ticker: '1',
+        ticker: 'all',
         name: 'All',
     },
     {
-        ticker: '2',
+        ticker: 'live',
         name: 'Live Price',
     },
     {
-        ticker: '3',
+        ticker: 'exchange',
         name: 'Exchanged',
     },
 ]

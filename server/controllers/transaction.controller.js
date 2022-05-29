@@ -11,9 +11,10 @@ export const store = async(req, res, next) => {
 }
 
 export const index = async(req, res, next) => {
-    const { page } = req.query
+    const { page, to, from, type } = req.query
+    // console.log(from)
     try {
-        const data = await getAll(page)
+        const data = await getAll({page, to, from, type})
         res.status(200).json(data)
     } catch (error) {
         next(error)

@@ -1,6 +1,7 @@
 .table {
     display: flex;
     margin-top: 45px;
+    flex-direction: column;
 
     table {
         flex: 1;
@@ -52,6 +53,13 @@
             }
         }
 
+        
+    }
+
+    .nodata {
+        margin-top: 10px;
+        flex: 1;
+        text-align: center;
     }
 
     @media screen and (max-width:480px) {

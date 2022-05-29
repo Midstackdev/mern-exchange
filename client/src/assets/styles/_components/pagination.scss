@@ -14,6 +14,10 @@
                  display: flex;
                  margin: 0 1px;
 
+                 &.hide {
+                     display: none;
+                 }
+
                  button {
                      display: flex;
                      align-items: center;

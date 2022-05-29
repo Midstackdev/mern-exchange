@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CaratDown } from '../assets/icons/svg'
 
-const Select = ({ title, data }) => {
+const Select = ({ title, data, setOption }) => {
     const [isOptionsOpen, setIsOptionsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const menuRef     = useRef(null);
@@ -67,11 +67,19 @@ const Select = ({ title, data }) => {
 
     const DefaultOption = ({ option }) => (
       <div className="default">
-        { option && <span className="picked">{option?.img} {option?.ticker}</span> }
+        { option && 
+          <span className="picked">
+            {option.image ? <>{option?.img} {option?.ticker}</> : <>{option?.img} {option?.name}</>}
+          </span> 
+        }
         {!option && <span>Select</span>}
         <CaratDown/>
       </div>
     )
+
+    useEffect(() => {
+     setOption(selectedOption) 
+    }, [selectedOption, setOption])
 
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside, true);
@@ -105,17 +113,21 @@ const Select = ({ title, data }) => {
             >
                 {optionsList.map((option, index) => (
                     <li
-                    key={index}
-                    id={option}
-                    role="option"
-                    aria-selected={selectedOption !== null}
-                    tabIndex={0}
-                    onKeyDown={handleKeyDown(index)}
-                    onClick={() => {
-                        setSelectedThenCloseDropdown(option);
-                    }}
+                      key={index}
+                      id={option}
+                      role="option"
+                      aria-selected={selectedOption !== null}
+                      tabIndex={0}
+                      onKeyDown={handleKeyDown(index)}
+                      onClick={() => {
+                          setSelectedThenCloseDropdown(option);
+                      }}
                     >
-                    <>{option?.img}</> <span>{option.ticker} - {option.name}</span>
+                      {
+                        option.img ?
+                        <><>{option?.img}</> <span>{option.ticker} - {option.name}</span></> :
+                        <span>{option.name}</span>
+                      }
                     </li>
                 ))}
             </ul>
