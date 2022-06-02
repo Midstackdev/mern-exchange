@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { CaratDown } from '../assets/icons/svg'
 
-const Select = ({ title, data, setOption }) => {
+const Select = ({ title, data, setOption, id }) => {
     const [isOptionsOpen, setIsOptionsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(null);
     const menuRef     = useRef(null);
@@ -78,8 +78,8 @@ const Select = ({ title, data, setOption }) => {
     )
 
     useEffect(() => {
-     setOption(selectedOption) 
-    }, [selectedOption, setOption])
+     setOption({id:id, option: {...selectedOption}}) 
+    }, [selectedOption, setOption, id])
 
     useEffect(() => {
       document.addEventListener('mousedown', handleClickOutside, true);

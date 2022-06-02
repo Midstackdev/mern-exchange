@@ -24,7 +24,11 @@ const Filter = ({ setFilter, setPage }) => {
     // sets the selected option to a type value for the query string 
     useEffect(() => {
         if(option) {
-            setType(option.ticker)
+            if(option.option.ticker === 'all') {
+                setTo('')
+                setFrom('')
+            }
+            setType(option.option.ticker)
         }
     }, [option])
 
@@ -41,7 +45,7 @@ const Filter = ({ setFilter, setPage }) => {
                 <input type="date" placeholder='Today' onChange={e => setTo(e.target.value)}/>
                 {/* <Calender className="icon"/> */}
             </div>
-            <Select title="Type" data={filters} setOption={setOption} name="type"/>
+            <Select title="Type" data={filters} setOption={setOption} id="type"/>
             <div className="formInput">
                 <button type="submit">Filter</button>
             </div>

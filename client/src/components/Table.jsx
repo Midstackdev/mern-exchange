@@ -3,21 +3,20 @@ import { SortDown, SortUp } from '../assets/icons/svg';
 import Modal from './Modal';
 
 const Table = ({ history }) => {
-
-    const [sorted, setSorted] = useState(false)
     const [data, setData] = useState(null)
     const [sortConfig, setSortConfig] = useState({})
     
+    // cache sorted data with memoize
     const sortedItems = useMemo(() => {
         let sortedData = [...history]
 
         if (sortConfig !== null) {
             sortedData.sort((a, b) => {
                 if (a[sortConfig.key] < b[sortConfig.key]) {
-                return sortConfig.direction === 'ascending' ? -1 : 1;
+                    return sortConfig.direction === 'ascending' ? -1 : 1;
                 }
                 if (a[sortConfig.key] > b[sortConfig.key]) {
-                return sortConfig.direction === 'ascending' ? 1 : -1;
+                    return sortConfig.direction === 'ascending' ? 1 : -1;
                 }
                 return 0;
             });
@@ -25,6 +24,7 @@ const Table = ({ history }) => {
         return sortedData
     }, [history, sortConfig])
 
+    // detrmine the sorted data direction to set direction icon
     const setIconDirection = (name) => {
         if (!sortConfig) {
             return;
@@ -32,19 +32,20 @@ const Table = ({ history }) => {
         return sortConfig.key === name ? sortConfig.direction : undefined;
     }
 
+    // set sort icon depending on sorted data direction
     const SortIcon = ({ name }) => (
         <>
         { setIconDirection(name) === 'ascending' ? <SortDown/> : <SortUp/> }
         </>
     )
 
+    // detrmine sort key and direction for sortConfig to sort data
     const handleSort = (key) => {
         let direction = 'ascending';
         if (sortConfig.key === key && sortConfig.direction === 'ascending') {
             direction = 'descending';
         }
         setSortConfig({ key, direction });
-        setSorted(!sorted)
     }
 
   return (
@@ -93,7 +94,7 @@ const Table = ({ history }) => {
                         <div className="status"></div>
                     </div>
                     <div className="amount">
-                        Amount BTC 2.56565656
+                        Amount {item.currencyFrom} {item.amountFrom}
                     </div>
                 </div>
             ))

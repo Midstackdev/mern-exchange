@@ -262,3 +262,35 @@ export const coinApi = {
 
 // const toDb = ratesSchemaData(data, rapidApiRatesData(tickers, data))
 // console.log(toDb)
+
+// const options = rapidApiOptions({ method: 'GET', endpoint: 'rates', params: { base: 'USD'} })
+  
+//   axios.request(options).then(function (response) {
+//       console.log(response.data);
+//   }).catch(function (error) {
+//       console.error(error);
+//   });
+
+// const getRateAndUpdate = async() => {
+//   await Promise.all(
+//     tickers.map((ticker) => {
+//       axios.get(`https://rest.coinapi.io/v1/exchangerate/${ticker}?invert=false`, {
+//         headers: {
+//           'X-CoinAPI-Key': coinApiKey
+//         }
+//       })
+//       .then(function (response) {
+//         // console.log(response.data);
+//         const data = response.data
+//         const toDb = ratesSchemaData(data, coinApiRatesData(tickers, data))
+//         update(ticker, toDb)
+//         // console.log('data to db---',toDb)
+//         console.log(ticker)
+//       }).catch(function (error) {
+//           console.error(error);
+//       });
+//     })
+//   )
+// }
+
+// await getRateAndUpdate()

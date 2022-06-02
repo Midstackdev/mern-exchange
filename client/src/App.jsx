@@ -3,7 +3,8 @@ import Filter from "./components/Filter";
 import Pagination from "./components/Pagination";
 import Table from "./components/Table";
 import axios from 'axios';
-import { useEffect, useState } from "react";
+import io from 'socket.io-client'
+import { useEffect, useRef, useState } from "react";
 
 axios.defaults.baseURL = 'http://localhost:5000/api/';
 
@@ -14,6 +15,11 @@ function App() {
   const [meta, setMeta] = useState({ lastPage: 1})
   const [page, setPage] = useState(1)
   const [filter, setFilter] = useState('')
+  const socket = useRef()
+
+  useEffect(() =>{
+    socket.current = io('ws://localhost:8500')
+  }, [])
 
   useEffect(() => {
     const getTransactions = async() => {
