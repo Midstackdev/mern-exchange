@@ -29,6 +29,10 @@ const Filter = ({ setFilter, setPage }) => {
                 setFrom('')
             }
             setType(option.option.ticker)
+            
+            if(option.option.ticker === undefined) {
+                setType('')
+            }
         }
     }, [option])
 

@@ -12,9 +12,11 @@ Also [Node.js](https://nodejs.org/en/) with [Express.js](https://expressjs.com/)
 - Click here [Link](https://www.loom.com/share/13cfeefed4c941e8a5ecb19b448549fb) for the demo video. 
 
 
-### Environment
+### Instructions
+- Clone this repo
+- Setup your ```.env``` file in the server folder with the ```.env.example``` file and varaibles provided in them
 
-- Setup your .env file in the server folder with the .env.example file and varaibles
+### Environment
 ```
 X_COIN_API_KEY='your-coin-api=key'
 ```
@@ -22,7 +24,7 @@ X_COIN_API_KEY='your-coin-api=key'
 ```
 DELAY_IN_MINUTES='minutes-elapsed-for-rates-to-refresh'
 ```
-- This is should be set lower for all currencies rates to be loaded. There is a concurrency limit but handled somehow.
+- This is the number of minutes for Coin Api Rates to refresh our rates. Note: we are limited to 100 calls per day.
 
 
 ## Available Scripts
@@ -38,7 +40,9 @@ $ cd server && yarn install & yarn dev
 ## Run with Docker
 In the project directory, you can run it with docker:
 
-### `docker-compose up -d --build`
+```
+$ docker-compose up -d --build
+```
 
 
 This will build your docker images an runs the app containers in the development mode.\
@@ -47,7 +51,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `docker-compose down`
+```
+$ docker-compose down
+```
 
 This will stop the running containers in docker and disconnenct the application network in docker.
 
