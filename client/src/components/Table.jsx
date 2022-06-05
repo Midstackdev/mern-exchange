@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { SortDown, SortUp } from '../assets/icons/svg';
 import Modal from './Modal';
 
-const Table = ({ history }) => {
+const Table = ({ history, loading }) => {
     const [data, setData] = useState(null)
     const [sortConfig, setSortConfig] = useState({})
     
@@ -64,7 +64,7 @@ const Table = ({ history }) => {
             </thead>
             <tbody>
                 {
-                    sortedItems.length > 1 && sortedItems.map(item => (
+                    sortedItems.length > 0 && sortedItems.map(item => (
                         <tr key={item._id}>
                             <td>{new Date(item.createdAt).toLocaleString()}</td>
                             <td>{item.currencyFrom}</td>
@@ -78,7 +78,12 @@ const Table = ({ history }) => {
             </tbody>
         </table>
         {
-            sortedItems.length === 0 && (
+            sortedItems.length === 0 && loading && (
+                <div className="nodata"> Loading...</div>
+            )
+        }
+        {
+            sortedItems.length === 0 && !loading &&(
                 <div className="nodata"> There is no data for this query</div>
             )
         }

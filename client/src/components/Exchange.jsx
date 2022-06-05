@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { crytos, fiats } from '../dummyData'
 import Select from './Select'
 
-const Exchange = () => {
+const Exchange = ({ socket, setSuccess }) => {
   const [amountFrom, setAmountFrom] = useState(0.00)
   const [amountTo, setAmountTo] = useState(0.00)
   const [currencyFrom, setCurrencyFrom] = useState('')
@@ -66,6 +66,10 @@ const Exchange = () => {
   }, [currencyFrom])
 
   const handleSubmit = async() => {
+    if(!currencyFrom || !currencyTo || amountTo === 0) {
+      alert('You must fill all input fields')
+      return
+    }
     const form = {
       currencyFrom,
       amountFrom,
@@ -75,7 +79,11 @@ const Exchange = () => {
     }
     try {
       const {data} = await axios.post(`/transaction/`, form)
-      console.log(data)
+      if(data) {
+        socket.current.emit('sendData', data)
+      }
+      setSuccess(true)
+      // console.log(data)
       setAmountFrom(0)
       setAmountTo(0)
     } catch (error) {

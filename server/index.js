@@ -8,11 +8,20 @@ import { update } from "./service/rates.service.js";
 import { registerRoutes } from "./routes/index.js";
 import errorMiddleware from "./middleware/error.middleware.js";
 import connectToDB from "./config/database.js";
-import './socket/index.js'
+import { createServer } from 'http';
+import { Server } from 'socket.io'
+import serverIo from "./socket/index.js";
 
 const MINIMUM_DELAY = aMinuteMicroseconds * delayInMunites;
 
 const app = express();
+
+const server = createServer(app)
+const io = new Server(server, {
+  cors: {
+      origin: "http://localhost:3000",
+    }
+})
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -54,9 +63,13 @@ app.get('/', (req, res) => {
   });
 });
 
+serverIo(io)
+
 registerRoutes(app)
 
-connectToDB();
+connectToDB().then(() => {
+  refreshRates() // this initial load is to provide rates data for the app to function
+});
 
 // we create this function to make api requests to update our rates with a delay of 10 mins
 let intervalid 
@@ -68,8 +81,9 @@ async function runRatesRefresher() {
 }
 // you can use this function like
 runRatesRefresher()
+
 // or stop the setInterval in any place by 
-clearInterval(intervalid)
+// clearInterval(intervalid)
 
 app.use(errorMiddleware)
 
@@ -79,6 +93,10 @@ app.use((_req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server is listening on port:${port}`);
+// app.listen(port, () => {
+//     console.log(`Server is listening on port:${port}`);
+// });
+
+server.listen(port, () => {
+  console.log(`listening on *:${port}`);
 });

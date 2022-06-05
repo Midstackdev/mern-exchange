@@ -17,7 +17,7 @@ const {
 
 export default {
     port: PORT || 5000,
-    mongoUri: CONNECTION_URI,
+    mongoUri: CONNECTION_URI || 'mongodb://midstacks:password@mongo:27017/mydb?authSource=admin',
     pepper: BCRYPT_PEPPER,
     rapidApiHost: X_RAPID_API_HOST,
     rapidApiKey: X_RAPID_API_KEY,
@@ -29,6 +29,6 @@ export default {
 
 export const port = PORT
 export const coinApiKey = X_COIN_API_KEY
-export const paginateLimit = parseInt(PAGINATE_DEFAULT_LIMIT)
-export const aMinuteMicroseconds = parseInt(A_MINUTE_MICROSECONDS)
-export const delayInMunites = parseInt(DELAY_IN_MINUTES)
+export const paginateLimit = parseInt(PAGINATE_DEFAULT_LIMIT) || 10
+export const aMinuteMicroseconds = parseInt(A_MINUTE_MICROSECONDS) || 60000
+export const delayInMunites = parseInt(DELAY_IN_MINUTES) || 5

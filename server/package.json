@@ -5,8 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "cd ../client && yarn run build",
     "start": "node index",
     "dev": "nodemon index",
+    "start-dev": "yarn build & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
